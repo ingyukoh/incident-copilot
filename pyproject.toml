@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "incident-copilot"
+version = "0.1.0"
+description = "LangGraph incident-response workflow: parallel evidence fan-out, human-approval interrupts, durable SQLite checkpoints, time travel, and an evaluated baseline."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Ingyu Koh"}]
+dependencies = [
+  "langgraph>=1.0,<2",
+  "langgraph-checkpoint-sqlite>=3.0,<4",
+  "langchain-core>=1.0,<2",
+]
+
+[project.optional-dependencies]
+anthropic = ["langchain-anthropic>=1.0,<2"]
+dev = ["pytest>=8.3,<10", "ruff>=0.7,<1"]
+
+[project.scripts]
+incident-copilot = "incident_copilot.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+incident_copilot = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# Report table rows read better on one line.
+"src/incident_copilot/evals.py" = ["E501"]

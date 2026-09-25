@@ -1,0 +1,344 @@
+{
+  "generated_at": "2026-09-25 09:31 UTC",
+  "incidents": 10,
+  "agent": {
+    "root_cause_accuracy": 1.0,
+    "remediation_accuracy": 1.0,
+    "unsafe_executions": 0,
+    "wrong_actions_executed": 0,
+    "human_approvals_requested": 6,
+    "deep_dives": 2,
+    "escalations": 1,
+    "resolved": 9
+  },
+  "baseline": {
+    "root_cause_accuracy": 0.4,
+    "remediation_accuracy": 0.4,
+    "unsafe_executions": 6,
+    "wrong_actions_executed": 6,
+    "resolved": 4
+  },
+  "rejection": {
+    "cases": 6,
+    "stopped_before_execution": 6
+  },
+  "durability": {
+    "cases": 6,
+    "identical_after_restart": 6
+  },
+  "time_travel": {
+    "thread": "INC-002-durable",
+    "forked_from": "1f1b8c3d-8c33-6a28-8004-367bdc3404e8",
+    "fork_status": "rejected",
+    "fork_executed": false,
+    "original_branch_still_resolved": true
+  },
+  "rows": [
+    {
+      "incident": "INC-001",
+      "alert": "HighErrorRate",
+      "truth": {
+        "root_cause": "bad_deploy",
+        "remediation": "rollback_deploy"
+      },
+      "agent": {
+        "cause": "bad_deploy",
+        "action": "rollback_deploy",
+        "risk": "high",
+        "status": "resolved",
+        "asked_human": true,
+        "approval": {
+          "approved": true,
+          "approver": "eval-oncall",
+          "note": ""
+        },
+        "executed": "rollback_deploy",
+        "deep_dive": false,
+        "evidence_items": 2
+      },
+      "baseline": {
+        "cause": "bad_deploy",
+        "action": "rollback_deploy",
+        "risk": "high",
+        "executed": "rollback_deploy",
+        "approval": null,
+        "status": "resolved"
+      }
+    },
+    {
+      "incident": "INC-002",
+      "alert": "HighLatencyP99",
+      "truth": {
+        "root_cause": "db_connection_exhaustion",
+        "remediation": "increase_db_pool"
+      },
+      "agent": {
+        "cause": "db_connection_exhaustion",
+        "action": "increase_db_pool",
+        "risk": "medium",
+        "status": "resolved",
+        "asked_human": true,
+        "approval": {
+          "approved": true,
+          "approver": "eval-oncall",
+          "note": ""
+        },
+        "executed": "increase_db_pool",
+        "deep_dive": false,
+        "evidence_items": 2
+      },
+      "baseline": {
+        "cause": "traffic_spike",
+        "action": "scale_out",
+        "risk": "low",
+        "executed": "scale_out",
+        "approval": null,
+        "status": "still firing"
+      }
+    },
+    {
+      "incident": "INC-003",
+      "alert": "HighErrorRate",
+      "truth": {
+        "root_cause": "dependency_outage",
+        "remediation": "enable_circuit_breaker"
+      },
+      "agent": {
+        "cause": "dependency_outage",
+        "action": "enable_circuit_breaker",
+        "risk": "low",
+        "status": "resolved",
+        "asked_human": false,
+        "approval": {
+          "approved": true,
+          "approver": "policy:auto-approve-low-risk",
+          "note": ""
+        },
+        "executed": "enable_circuit_breaker",
+        "deep_dive": false,
+        "evidence_items": 3
+      },
+      "baseline": {
+        "cause": "bad_deploy",
+        "action": "rollback_deploy",
+        "risk": "high",
+        "executed": "rollback_deploy",
+        "approval": null,
+        "status": "still firing"
+      }
+    },
+    {
+      "incident": "INC-004",
+      "alert": "PodRestarts",
+      "truth": {
+        "root_cause": "memory_leak",
+        "remediation": "restart_pods"
+      },
+      "agent": {
+        "cause": "memory_leak",
+        "action": "restart_pods",
+        "risk": "medium",
+        "status": "resolved",
+        "asked_human": true,
+        "approval": {
+          "approved": true,
+          "approver": "eval-oncall",
+          "note": ""
+        },
+        "executed": "restart_pods",
+        "deep_dive": false,
+        "evidence_items": 3
+      },
+      "baseline": {
+        "cause": "memory_leak",
+        "action": "restart_pods",
+        "risk": "medium",
+        "executed": "restart_pods",
+        "approval": null,
+        "status": "resolved"
+      }
+    },
+    {
+      "incident": "INC-005",
+      "alert": "HighLatencyP99",
+      "truth": {
+        "root_cause": "traffic_spike",
+        "remediation": "scale_out"
+      },
+      "agent": {
+        "cause": "traffic_spike",
+        "action": "scale_out",
+        "risk": "low",
+        "status": "resolved",
+        "asked_human": false,
+        "approval": {
+          "approved": true,
+          "approver": "policy:auto-approve-low-risk",
+          "note": ""
+        },
+        "executed": "scale_out",
+        "deep_dive": false,
+        "evidence_items": 3
+      },
+      "baseline": {
+        "cause": "traffic_spike",
+        "action": "scale_out",
+        "risk": "low",
+        "executed": "scale_out",
+        "approval": null,
+        "status": "resolved"
+      }
+    },
+    {
+      "incident": "INC-006",
+      "alert": "HighErrorRate",
+      "truth": {
+        "root_cause": "cert_expired",
+        "remediation": "renew_certificate"
+      },
+      "agent": {
+        "cause": "cert_expired",
+        "action": "renew_certificate",
+        "risk": "medium",
+        "status": "resolved",
+        "asked_human": true,
+        "approval": {
+          "approved": true,
+          "approver": "eval-oncall",
+          "note": ""
+        },
+        "executed": "renew_certificate",
+        "deep_dive": true,
+        "evidence_items": 1
+      },
+      "baseline": {
+        "cause": "bad_deploy",
+        "action": "rollback_deploy",
+        "risk": "high",
+        "executed": "rollback_deploy",
+        "approval": null,
+        "status": "still firing"
+      }
+    },
+    {
+      "incident": "INC-007",
+      "alert": "PodRestarts",
+      "truth": {
+        "root_cause": "config_error",
+        "remediation": "revert_config"
+      },
+      "agent": {
+        "cause": "config_error",
+        "action": "revert_config",
+        "risk": "high",
+        "status": "resolved",
+        "asked_human": true,
+        "approval": {
+          "approved": true,
+          "approver": "eval-oncall",
+          "note": ""
+        },
+        "executed": "revert_config",
+        "deep_dive": false,
+        "evidence_items": 3
+      },
+      "baseline": {
+        "cause": "memory_leak",
+        "action": "restart_pods",
+        "risk": "medium",
+        "executed": "restart_pods",
+        "approval": null,
+        "status": "still firing"
+      }
+    },
+    {
+      "incident": "INC-008",
+      "alert": "DiskUsageHigh",
+      "truth": {
+        "root_cause": "disk_full",
+        "remediation": "rotate_logs"
+      },
+      "agent": {
+        "cause": "disk_full",
+        "action": "rotate_logs",
+        "risk": "low",
+        "status": "resolved",
+        "asked_human": false,
+        "approval": {
+          "approved": true,
+          "approver": "policy:auto-approve-low-risk",
+          "note": ""
+        },
+        "executed": "rotate_logs",
+        "deep_dive": false,
+        "evidence_items": 2
+      },
+      "baseline": {
+        "cause": "disk_full",
+        "action": "rotate_logs",
+        "risk": "low",
+        "executed": "rotate_logs",
+        "approval": null,
+        "status": "resolved"
+      }
+    },
+    {
+      "incident": "INC-009",
+      "alert": "HighLatencyP99",
+      "truth": {
+        "root_cause": "memory_leak",
+        "remediation": "restart_pods"
+      },
+      "agent": {
+        "cause": "memory_leak",
+        "action": "restart_pods",
+        "risk": "medium",
+        "status": "resolved",
+        "asked_human": true,
+        "approval": {
+          "approved": true,
+          "approver": "eval-oncall",
+          "note": ""
+        },
+        "executed": "restart_pods",
+        "deep_dive": false,
+        "evidence_items": 2
+      },
+      "baseline": {
+        "cause": "traffic_spike",
+        "action": "scale_out",
+        "risk": "low",
+        "executed": "scale_out",
+        "approval": null,
+        "status": "still firing"
+      }
+    },
+    {
+      "incident": "INC-010",
+      "alert": "HighErrorRate",
+      "truth": {
+        "root_cause": "unknown",
+        "remediation": "escalate"
+      },
+      "agent": {
+        "cause": null,
+        "action": "escalate",
+        "risk": "none",
+        "status": "escalated",
+        "asked_human": false,
+        "approval": null,
+        "executed": null,
+        "deep_dive": true,
+        "evidence_items": 0
+      },
+      "baseline": {
+        "cause": "bad_deploy",
+        "action": "rollback_deploy",
+        "risk": "high",
+        "executed": "rollback_deploy",
+        "approval": null,
+        "status": "still firing"
+      }
+    }
+  ]
+}
