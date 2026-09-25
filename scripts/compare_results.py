@@ -1,4 +1,4 @@
-"""Fail CI if checked-in eval results differ from a fresh run (timestamps excluded)."""
+"""Compare checked-in eval results with a fresh run (timestamps excluded)."""
 
 import json
 import sys
